@@ -13,6 +13,7 @@ export default function Navbar() {
         {/* Rewards Link with Icon */}
         <Link to="/rewards" className="flex items-center space-x-1 hover:text-green-400">
           <span>🎁</span>
+          <span className="text-sm font-medium">Rewards</span>
         </Link>
       </div>
     </nav>

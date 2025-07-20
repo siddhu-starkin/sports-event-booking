@@ -123,27 +123,28 @@ export default function Venues() {
   ];
 
   return (
-    <div className="p-4">
-      <h1 className="text-3xl font-bold text-center mb-6">{sportName} Venues</h1>
+    <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 p-6 text-white font-sans">
+      <h1 className="text-4xl font-bold text-center mb-10 underline underline-offset-4 drop-shadow">
+        {sportName} Venues
+      </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {combinedVenues.map((venue, index) => (
           <div
             key={index}
-            className="border rounded shadow p-4 text-center transform transition-transform hover:scale-105"
-            style={{ backgroundColor: '#f372fc' }}
+            className="bg-white/20 backdrop-blur-md p-4 rounded-xl shadow-xl text-center transform hover:scale-105 transition duration-300"
           >
             <img
               src={venue.img || venue.imageUrl}
               alt={venue.name}
-              className="h-60 w-full object-cover rounded mb-2"
+              className="h-48 w-full object-cover rounded mb-4"
             />
-            <h2 className="text-xl font-bold text-white">{venue.name}</h2>
-            <p className="text-white">Location: {venue.place}</p>
-            <p className="text-white">Price per Hour: ₹{venue.price}</p>
+            <h2 className="text-xl font-bold text-yellow-200">{venue.name}</h2>
+            <p className="text-pink-200">📍 {venue.place}</p>
+            <p className="text-pink-200">💸 ₹{venue.price} / hr</p>
             <button
               onClick={() => setSelectedVenue(venue)}
-              className="mt-2 bg-black text-white px-4 py-2 rounded hover:bg-green-600"
+              className="mt-4 bg-gradient-to-r from-green-500 to-lime-400 text-black px-5 py-2 rounded-full font-bold hover:scale-105 transition"
             >
               Book Now
             </button>
@@ -158,12 +159,12 @@ export default function Venues() {
         />
       )}
 
-      <div className="mt-8 w-full">
+      <div className="mt-12 w-full max-w-xl mx-auto text-center">
         <button
-          className="bg-blue-600 text-white px-6 py-3 rounded hover:bg-green-600 w-full"
+          className="bg-white text-indigo-700 px-6 py-3 rounded-full font-bold shadow-lg hover:bg-green-600 hover:text-white transition w-full"
           onClick={() => setShowOwnerForm(true)}
         >
-          Add Your Venue
+          📢 Add Your Venue
         </button>
         {showOwnerForm && (
           <OwnerVenueForm
@@ -175,3 +176,4 @@ export default function Venues() {
     </div>
   );
 }
+
