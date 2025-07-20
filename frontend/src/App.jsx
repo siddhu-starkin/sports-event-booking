@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Bookings from "./pages/Bookings";
+import Venues from "./pages/venues";  
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/bookings" element={<Bookings />} />
+            {/* ✅ Dynamic route for Venues */}
+            <Route path="/venues/:sportName" element={<Venues />} />
           </Routes>
         </div>
       </div>
